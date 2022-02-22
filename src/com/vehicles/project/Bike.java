@@ -8,16 +8,16 @@ public class Bike extends Vehicle {
         super(plate, brand, color);
     }
 
-   /* @Override
-    public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
-        if (frontWheels.size() != 1 && backWheels.size() != 1)
-            throw new Exception("The number of wheels in the bike in on in the front and in the back");
+    /* @Override
+     public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
+         if (frontWheels.size() != 1 && backWheels.size() != 1)
+             throw new Exception("The number of wheels in the bike in on in the front and in the back");
 
-        this.addOneWheel(frontWheels.get(0));
-        this.addOneWheel(backWheels.get(0));
-    }*/
+         this.addOneWheel(frontWheels.get(0));
+         this.addOneWheel(backWheels.get(0));
+     }*/
     @Override
-    public void addWheels(Wheel templateWheel) throws Exception {
+    public void addWheels(Wheel templateWheel) {
 
 
         this.addOneWheel(templateWheel);

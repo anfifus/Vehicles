@@ -18,7 +18,7 @@ public class Tricycle extends Vehicle {
         addTwoWheels(backWheels);
     }*/
     @Override
-    public void addWheels(Wheel templateWheel) throws Exception {
+    public void addWheels(Wheel templateWheel) {
 
 
         addOneWheel(templateWheel);

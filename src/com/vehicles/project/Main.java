@@ -36,17 +36,14 @@ public class Main {
     }
 
     private static Vehicle createVehicle(int option) throws Exception {
-        Vehicle vehicle = null;
+        Vehicle vehicle;
         switch (option) {
-            case CAR -> {
-                vehicle = createCar();
-            }
-            case BIKE -> {
-                vehicle = createBike();
-            }
-            case TRICYCLE -> {
+            case CAR -> vehicle = createCar();
+            case BIKE -> vehicle = createBike();
+
+            case TRICYCLE ->
                 vehicle = createTricycle();
-            }
+
             default -> throw new Exception("Need to select the correct option or the vehicle will not created");
         }
         return vehicle;
@@ -54,21 +51,21 @@ public class Main {
 
     private static void addWheelsToTheVehicle(Vehicle vehicle) throws Exception {
 
-        if (vehicle instanceof Car) {
+      /*  if (vehicle instanceof Car) {
 
-            //vehicle.addWheels(createTwoWheel(), createTwoWheel());
+            vehicle.addWheels(createTwoWheel(), createTwoWheel());
 
 
         } else if (vehicle instanceof Bike) {
 
 
-            //vehicle.addWheels(createFinalWheel(), createFinalWheel());
+            vehicle.addWheels(createFinalWheel(), createFinalWheel());
 
 
         } else if (vehicle instanceof Tricycle) {
 
-           // vehicle.addWheels(createFinalWheel(), createTwoWheel());
-        }
+            vehicle.addWheels(createFinalWheel(), createTwoWheel());
+        }*/
         vehicle.addWheels(createWheel());
     }
 
@@ -83,8 +80,8 @@ public class Main {
 
 
     private static Vehicle createTricycle() throws Exception {
-        Tricycle tricycle = null;
-        tricycle = new Tricycle(askPlate(), askBrand(), askColor());
+
+        Tricycle tricycle = new Tricycle(askPlate(), askBrand(), askColor());
 
         return tricycle;
     }
@@ -101,9 +98,8 @@ public class Main {
 
 
     private static Vehicle createBike() throws Exception {
-        Bike bike = null;
 
-        bike = new Bike(askPlate(), askBrand(), askColor());
+        Bike bike = new Bike(askPlate(), askBrand(), askColor());
 
 
         return bike;
@@ -142,9 +138,8 @@ public class Main {
     }
 
     private static Car createCar() throws Exception {
-        Car car = null;
 
-        car = new Car(askPlate(), askBrand(), askColor());
+        Car car = new Car(askPlate(), askBrand(), askColor());
 
 
         return car;

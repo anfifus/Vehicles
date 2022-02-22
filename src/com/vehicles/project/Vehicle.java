@@ -67,5 +67,37 @@ public abstract class Vehicle {
 	public List<Wheel> getWheels() {
 		return wheels;
 	}
-	public abstract void addWheels(List<Wheel> frontWheels,List<Wheel>backWheels );
+	//public abstract void addWheels(List<Wheel> frontWheels,List<Wheel>backWheels ) throws Exception;
+	public abstract void addWheels(Wheel templateWheel ) throws Exception;
+	/*protected void addTwoWheels(List<Wheel> backWheels) throws Exception{
+
+		if (backWheels.size() != 2)
+			throw new Exception("The wheels of the vehicle must have 2");
+
+		Wheel rightWheel = backWheels.get(0);
+		Wheel leftWheel = backWheels.get(1);
+
+		if (!rightWheel.equals(leftWheel))
+			throw new Exception("The right wheel is different size or brand from the left wheel");
+
+		this.wheels.add(rightWheel);
+		this.wheels.add(leftWheel);
+	}*/
+	protected void addTwoWheels(Wheel templateWheels) throws Exception{
+
+		/*if (backWheels.size() != 2)
+			throw new Exception("The wheels of the vehicle must have 2");*/
+
+		Wheel rightWheel = templateWheels;
+		Wheel leftWheel = templateWheels;
+
+		if (!rightWheel.equals(leftWheel))
+			throw new Exception("The right wheel is different size or brand from the left wheel");
+
+		this.wheels.add(rightWheel);
+		this.wheels.add(leftWheel);
+	}
+	protected void addOneWheel(Wheel wheel)  {
+		this.wheels.add(wheel);
+	}
 }

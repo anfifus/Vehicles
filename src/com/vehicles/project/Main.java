@@ -5,19 +5,16 @@ import java.util.List;
 import java.util.Scanner;
 
 
-
 public class Main {
     private final static int CAR = 1;
     private final static int BIKE = 2;
     private final static int TRICYCLE = 3;
 
-    private final static int NUM_CAR_WHEELS = 4;
-    private final static int NUM_BIKE_WHEELS = 2;
-    private final static int NUM_TRICYCLE = 3;
+    private final static int TWO_WHEELS = 2;
+    private final static int ONE_WHEEL = 1;
 
 
     public static void main(String[] args) {
-
 
 
         try {
@@ -25,7 +22,7 @@ public class Main {
             Vehicle vehicle = createVehicle(option);
             addWheelsToTheVehicle(vehicle);
 
-            //showResults(vehicle);
+            showResults(vehicle);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -33,7 +30,7 @@ public class Main {
 
     }
 
-    private static int chooseVehicleType()  {
+    private static int chooseVehicleType() {
         showMenu();
         return (new Scanner(System.in).nextInt());
     }
@@ -59,21 +56,23 @@ public class Main {
 
         if (vehicle instanceof Car) {
 
-            createAllWheels(NUM_CAR_WHEELS);
+            //vehicle.addWheels(createTwoWheel(), createTwoWheel());
 
 
         } else if (vehicle instanceof Bike) {
 
-            createAllWheels(NUM_BIKE_WHEELS);
+
+            //vehicle.addWheels(createFinalWheel(), createFinalWheel());
 
 
         } else if (vehicle instanceof Tricycle) {
-            createAllWheels(NUM_TRICYCLE);
-        }
 
+           // vehicle.addWheels(createFinalWheel(), createTwoWheel());
+        }
+        vehicle.addWheels(createWheel());
     }
 
-    private static void showMenu()  {
+    private static void showMenu() {
 
         System.out.println("1-Create a car");
         System.out.println("2-Create a bike");
@@ -92,12 +91,11 @@ public class Main {
 
     private static void showResults(Vehicle vehicle) {
 
-        if (vehicle instanceof Car) {
+
 
             System.out.println("The brand of the car is: " + vehicle.getWheels().size());
-        } else if (vehicle instanceof Bike) {
-            System.out.println("The brand of the bike is: " + vehicle.getWheels().size());
-        }
+
+
 
     }
 
@@ -112,16 +110,21 @@ public class Main {
     }
 
 
-    private static List<Wheel> createAllWheels(int totalWheels) throws Exception {
+    private static List<Wheel> createFinalWheel() throws Exception {
         List<Wheel> wheels = new ArrayList<>();
-
-        for (int i = 0; i < totalWheels; i++) {
-            System.out.println(i + 1 + " Wheel");
+        for (int i = 0; i < ONE_WHEEL; i++) {
             wheels.add(createWheel());
         }
         return wheels;
+    }
 
+    private static List<Wheel> createTwoWheel() throws Exception {
 
+        List<Wheel> wheels = new ArrayList<>();
+        for (int i = 0; i < TWO_WHEELS; i++) {
+            wheels.add(createWheel());
+        }
+        return wheels;
     }
 
     private static Wheel createWheel() throws Exception {
